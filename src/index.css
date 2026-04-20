@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050816;
+  --color-surface: #0b1120;
+  --color-surface-2: #101a2f;
+  --color-primary: #22d3ee;
+  --color-secondary: #60a5fa;
+  --color-accent: #f97316;
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-drift: drift 18s ease-in-out infinite;
+
+  @keyframes gradient {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(30px, -18px, 0) scale(1.08); }
+  }
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(34, 211, 238, 0.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.18), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.14), transparent 35%),
+    #050816;
+  color: #fafafa;
+  overflow-x: hidden;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+.glass-panel {
+  background: linear-gradient(135deg, rgba(16, 26, 47, 0.7), rgba(11, 17, 32, 0.7));
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.noise-overlay {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px, 36px 36px;
+  background-position: 0 0, 12px 12px;
+}
+
+.section-ring {
+  position: relative;
+}
+
+.section-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(34, 211, 238, 0.4), rgba(249, 115, 22, 0.35), rgba(59, 130, 246, 0.35));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Modern Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b1120; }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2563eb; }
