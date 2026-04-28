@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import LightRays from "./bits/LightRays";
+import Hyperspeed from "./bits/Hyperspeed";
 const cubeFaces = [
   "from-cyan-400/70 to-blue-500/70",
   "from-orange-400/70 to-amber-500/70",
@@ -33,12 +35,71 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-[92vh] items-center justify-center pt-24 pb-16"
     >
+
+      {/* <Hyperspeed
+        effectOptions={{
+          distortion: "turbulentDistortion",
+          length: 400,
+          roadWidth: 10,
+          islandWidth: 2,
+          lanesPerRoad: 4,
+          fov: 90,
+          fovSpeedUp: 150,
+          speedUp: 2,
+          carLightsFade: 0.4,
+          totalSideLightSticks: 20,
+          lightPairsPerRoadWay: 40,
+          shoulderLinesWidthPercentage: 0.05,
+          brokenLinesWidthPercentage: 0.1,
+          brokenLinesLengthPercentage: 0.5,
+          lightStickWidth: [0.12, 0.5],
+          lightStickHeight: [1.3, 1.7],
+          movingAwaySpeed: [60, 80],
+          movingCloserSpeed: [-120, -160],
+          carLightsLength: [400 * 0.03, 400 * 0.2],
+          carLightsRadius: [0.05, 0.14],
+          carWidthPercentage: [0.3, 0.5],
+          carShiftX: [-0.8, 0.8],
+          carFloorSeparation: [0, 5],
+          colors: {
+            roadColor: 0x080808,
+            islandColor: 0x0a0a0a,
+            background: 0x000000,
+            shoulderLines: 0xffffff,
+            brokenLines: 0xffffff,
+            leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+            rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+            sticks: 0x03b3c3,
+          },
+        }}
+        onSpeedUp={() => { }}
+        onSlowDown={() => { }}
+      /> */}
+      <div className="absolute top-0 left-0 w-screen h-screen">
+
+        <LightRays
+          raysOrigin="top-left"
+          raysColor="#ffffff"
+          raysSpeed={0.5}
+          lightSpread={0.5}
+          rayLength={1}
+          followMouse={true}
+          mouseInfluence={0.5}
+          noiseAmount={0}
+          distortion={0}
+          className="custom-rays"
+          pulsating={false}
+          fadeDistance={1}
+          saturation={1}
+        />
+
+      </div>
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-0 top-20 h-52 w-52 rounded-full bg-cyan-400/15 blur-3xl" />
         <div className="absolute right-0 top-40 h-64 w-64 rounded-full bg-blue-500/15 blur-3xl" />
       </div>
 
-      <div className="grid w-full items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="grid w-full relative z-11 items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +119,7 @@ export default function Hero() {
                 ref={professionRef}
                 className="bg-gradient-to-r from-cyan-300 via-blue-300 to-orange-300 bg-clip-text text-transparent"
               />
-            Developer
+              Developer
             </span>
           </h1>
 
