@@ -13,7 +13,7 @@ const projects = [
     title: "NXG Markets",
     description:
       "A comprehensive trading platform for Forex and CFDs, offering access to various financial instruments and the MT5 platform.",
-    tags: ["next js","RTK Query", "Shadcn Ui", "Tailwind css", "Node.js"],
+    tags: ["next js", "RTK Query", "Shadcn Ui", "Tailwind css", "Node.js"],
     gradient: "from-cyan-400/20 to-blue-500/20",
     image: project1,
     liveUrl: "https://www.nxgmarkets.com/",
@@ -23,7 +23,7 @@ const projects = [
     title: "UTFX",
     description:
       "A modern landing page for a forex trading platform, showcasing advanced tools and a secure, regulated environment to build user trust.",
-    tags: ["next js","RTK Query", "Shadcn Ui", "Tailwind css", "Node.js"],
+    tags: ["next js", "RTK Query", "Shadcn Ui", "Tailwind css", "Node.js"],
     gradient: "from-cyan-400/20 to-blue-500/20",
     image: project7,
     liveUrl: "https://utfx.vercel.app/",
@@ -167,23 +167,25 @@ function TiltCard({ project }) {
 export default function Projects() {
   return (
     <section id="projects" className="py-20 md:py-24">
-      <div className="mb-12 text-center md:mb-16">
-        <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-          {"[ Project Showcase ]"}
-        </p>
-        <h2 className="text-3xl font-black text-white md:text-5xl">
-          Featured Build Collection
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-zinc-300">
-          A showcase of production-style projects built for performance,
-          clarity, and smooth developer-friendly experiences.
-        </p>
-      </div>
+      <div className="container">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+            {"[ Project Showcase ]"}
+          </p>
+          <h2 className="text-3xl font-black text-white md:text-5xl">
+            Featured Build Collection
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-zinc-300">
+            A showcase of production-style projects built for performance,
+            clarity, and smooth developer-friendly experiences.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3 [perspective:1200px]">
-        {projects.map((project) => (
-          <TiltCard key={project.title} project={project} />
-        ))}
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3 [perspective:1200px]">
+          {projects.map((project) => (
+            <TiltCard key={project.title} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );

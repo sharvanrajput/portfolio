@@ -214,6 +214,9 @@ body {
   html {
     @apply font-sans;
   }
+  .container{
+    @apply mx-auto px-20 mx-auto
+  }
 }
 .light-rays-container {
   width: 100%;

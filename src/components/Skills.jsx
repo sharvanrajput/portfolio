@@ -43,32 +43,33 @@ export default function Skills() {
         <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">{'{ Tech Stack }'}</p>
         <h2 className="text-3xl font-black text-white md:text-5xl">Developer Arsenal</h2>
       </div>
-
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
-        className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:grid-cols-6"
-      >
-        {skills.map((skill) => {
-          const Icon = skill.icon
-          return (
-            <motion.div
-              key={skill.name}
-              variants={itemVariants}
-              whileHover={{ y: -6, rotateX: -8, rotateY: 6, transition: { duration: 0.2 } }}
-              className={`section-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${skill.color} p-5 text-center [transform-style:preserve-3d]`}
-            >
-              <div className="absolute inset-0 bg-slate-900/55" />
-              <div className="relative" style={{ transform: 'translateZ(28px)' }}>
-                <Icon className={`mx-auto mb-3 text-4xl ${skill.iconColor}`} />
-                <span className="text-sm font-semibold text-zinc-100">{skill.name}</span>
-              </div>
-            </motion.div>
-          )
-        })}
-      </motion.div>
+      <div className="container">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:grid-cols-6"
+        >
+          {skills.map((skill) => {
+            const Icon = skill.icon
+            return (
+              <motion.div
+                key={skill.name}
+                variants={itemVariants}
+                whileHover={{ y: -6, rotateX: -8, rotateY: 6, transition: { duration: 0.2 } }}
+                className={`section-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${skill.color} p-5 text-center [transform-style:preserve-3d]`}
+              >
+                <div className="absolute inset-0 bg-slate-900/55" />
+                <div className="relative" style={{ transform: 'translateZ(28px)' }}>
+                  <Icon className={`mx-auto mb-3 text-4xl ${skill.iconColor}`} />
+                  <span className="text-sm font-semibold text-zinc-100">{skill.name}</span>
+                </div>
+              </motion.div>
+            )
+          })}
+        </motion.div>
+      </div>
     </section>
   )
 }

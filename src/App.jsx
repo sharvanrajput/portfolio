@@ -132,7 +132,7 @@ function App() {
         </AnimatePresence>
       </nav>
 
-      <main className="max-w-6xl mx-auto px-5 md:px-6">
+      <main className="">
         <Hero />
         <Projects />
         <Skills />
